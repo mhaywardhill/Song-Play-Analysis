@@ -38,6 +38,7 @@ def process_log_file(cur, dataset):
         cur.copy_from(f, "log_staging", sep="|", null="")
 
     # load time dimension
+    # would be more efficient creating the records for the tim dim from the log staging table in Postgres
     logging.info("Loading time dimension")
     t = pd.to_datetime(dataset["ts"])
     time_data = list(
