@@ -32,3 +32,13 @@ The first dataset (in folder data) is a subset of real data from the [Million So
 2. Run the ETL:
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`python ./etl.py`
+
+# Project Files  
+<b>sql_queries.py</b>: Contains SQL queries for dropping and creating the fact and dimension tables. Also, it contains the SQL queries to load the dimensions.  
+
+<b>create_tables.py</b>: Contains code for creating the sparkifydb database, and the database schema (the tables).  
+
+<b>etl.py</b>: Runs the Python ETL.  
+
+<b>Manual_ETL.ipynb</b>: Jupyter notebook to manually run the ETL step-by-step.
+
