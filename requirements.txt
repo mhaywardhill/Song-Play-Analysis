@@ -1,6 +1,7 @@
 psycopg2==2.7.5
 sql_queries==0.1.2
 black
+numpy==1.19.1
 pandas==1.1.1
 
 
