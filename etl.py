@@ -12,8 +12,8 @@ logging.basicConfig(
 )
 
 
-def process_song_file(cur, dataset):
-    # load song staging table
+def process_song_data(cur, dataset):
+    '''' process the song data '''
     logging.info("Loading song staging table")
     dataset.to_csv("song_file.csv", sep="|", index=False, header=False)
     with open("song_file.csv", encoding="utf-8") as f:
@@ -28,8 +28,8 @@ def process_song_file(cur, dataset):
     cur.execute(artist_table_insert)
 
 
-def process_log_file(cur, dataset):
-    # load log staging table
+def process_log_data(cur, dataset):
+    ''' process the log data '''
     logging.info("Loading log staging table")
     dataset = dataset[(dataset["page"] == "NextSong")].astype({"ts": "datetime64[ms]"})
     dataset.to_csv("log_file.csv", sep="|", index=False, header=False)
@@ -69,7 +69,7 @@ def process_log_file(cur, dataset):
 
 
 def process_data(cur, conn, filepath, func):
-    # get all files matching extension from directory
+    ''' gets all files matching extension from directory '''
     all_files = []
     for root, dirs, files in os.walk(filepath):
         files = glob.glob(os.path.join(root, "*.json"))
@@ -99,8 +99,8 @@ def main():
     )
     cur = conn.cursor()
 
-    process_data(cur, conn, filepath="data/song_data", func=process_song_file)
-    process_data(cur, conn, filepath="data/log_data", func=process_log_file)
+    process_data(cur, conn, filepath="data/song_data", func=process_song_data)
+    process_data(cur, conn, filepath="data/log_data", func=process_log_data)
     logging.info("Finished!")
 
     if conn:
