@@ -120,10 +120,11 @@ JOIN artists a ON st.artist = a.Name
 JOIN songs s ON st.song = s.title;
 """)
 
+# Update conflict to handle if the user converts from the free tier into a paid user
 user_table_insert = ("""
 INSERT INTO users (user_id, first_name, last_name, gender, level)
 SELECT userId, firstName, lastName, gender, level FROM log_staging 
-ON CONFLICT DO NOTHING;
+ON CONFLICT(user_id) DO UPDATE SET level = excluded.level;
 """)
 
 song_table_insert = ("""
