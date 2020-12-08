@@ -4,7 +4,12 @@ In this project, we create a database schema in Postgres and build an ETL pipeli
 
 A startup collects songs and user activity on their music streaming app. The analytics team wants to know what songs users are listening to. The data resides in a directory of JSON logs on user activity, as well as a directory with JSON metadata on the songs in their app.
 
-The first dataset (in folder data) is a subset of real data from the [Million Song Dataset](http://millionsongdataset.com/).
+The first dataset (in folder data) is a subset of real data from the [Million Song Dataset](http://millionsongdataset.com/).  
+
+## Database Schema
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![ER](/ER_diagram.PNG)
+
 
 
 ## Step 1: Setup the Environment
