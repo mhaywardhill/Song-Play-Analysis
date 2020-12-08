@@ -28,7 +28,7 @@ The first dataset (in folder data) is a subset of real data from the [Million So
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`conda activate sparkify`  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`pip install -r requirements.txt`  
 
-## Step: Run the ETL
+## Step 2: Run the ETL
 
 1. Create database sparkifdb and database schema:
 
